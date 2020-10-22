@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvSiparisler = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvSiparisDetayları = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -58,8 +58,19 @@
             this.splitContainer1.Panel2.Controls.Add(this.dgvSiparisDetayları);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Size = new System.Drawing.Size(784, 461);
-            this.splitContainer1.SplitterDistance = 230;
+            this.splitContainer1.SplitterDistance = 229;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // dgvSiparisler
+            // 
+            this.dgvSiparisler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSiparisler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSiparisler.Location = new System.Drawing.Point(3, 31);
+            this.dgvSiparisler.Name = "dgvSiparisler";
+            this.dgvSiparisler.Size = new System.Drawing.Size(778, 196);
+            this.dgvSiparisler.TabIndex = 1;
             // 
             // label1
             // 
@@ -71,16 +82,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Siparişler";
             // 
-            // dgvSiparisler
-            // 
-            this.dgvSiparisler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSiparisler.Location = new System.Drawing.Point(3, 31);
-            this.dgvSiparisler.Name = "dgvSiparisler";
-            this.dgvSiparisler.Size = new System.Drawing.Size(778, 196);
-            this.dgvSiparisler.TabIndex = 1;
-            // 
             // dgvSiparisDetayları
             // 
+            this.dgvSiparisDetayları.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSiparisDetayları.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSiparisDetayları.Location = new System.Drawing.Point(3, 28);
             this.dgvSiparisDetayları.Name = "dgvSiparisDetayları";
