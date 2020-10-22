@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CafeBoost.Data
+﻿namespace CafeBoost.Data
 {
     public enum SiparisDurum
     {
