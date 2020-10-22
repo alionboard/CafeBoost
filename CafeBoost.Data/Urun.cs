@@ -6,7 +6,7 @@
         public decimal BirimFiyat { get; set; }
         public override string ToString()
         {
-            return string.Format(" {0 }({1:0.00}₺)", UrunAd, BirimFiyat);
+            return string.Format(" {0 }({1:0.00}TL)", UrunAd, BirimFiyat);
         }
     }
 }
