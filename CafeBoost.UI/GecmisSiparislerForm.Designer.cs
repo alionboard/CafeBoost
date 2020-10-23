@@ -31,14 +31,14 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvSiparisler = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvSiparisDetayları = new System.Windows.Forms.DataGridView();
+            this.dgvSiparisDetaylar = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisler)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisDetayları)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisDetaylar)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -55,22 +55,31 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dgvSiparisDetayları);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvSiparisDetaylar);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Size = new System.Drawing.Size(784, 461);
-            this.splitContainer1.SplitterDistance = 229;
+            this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 0;
             // 
             // dgvSiparisler
             // 
+            this.dgvSiparisler.AllowUserToAddRows = false;
+            this.dgvSiparisler.AllowUserToDeleteRows = false;
             this.dgvSiparisler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSiparisler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSiparisler.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSiparisler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSiparisler.Location = new System.Drawing.Point(3, 31);
+            this.dgvSiparisler.MultiSelect = false;
             this.dgvSiparisler.Name = "dgvSiparisler";
-            this.dgvSiparisler.Size = new System.Drawing.Size(778, 196);
+            this.dgvSiparisler.ReadOnly = true;
+            this.dgvSiparisler.RowHeadersVisible = false;
+            this.dgvSiparisler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSiparisler.Size = new System.Drawing.Size(778, 194);
             this.dgvSiparisler.TabIndex = 1;
+            this.dgvSiparisler.SelectionChanged += new System.EventHandler(this.dgvSiparisler_SelectionChanged);
             // 
             // label1
             // 
@@ -82,16 +91,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Siparişler";
             // 
-            // dgvSiparisDetayları
+            // dgvSiparisDetaylar
             // 
-            this.dgvSiparisDetayları.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvSiparisDetaylar.AllowUserToAddRows = false;
+            this.dgvSiparisDetaylar.AllowUserToDeleteRows = false;
+            this.dgvSiparisDetaylar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSiparisDetayları.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSiparisDetayları.Location = new System.Drawing.Point(3, 28);
-            this.dgvSiparisDetayları.Name = "dgvSiparisDetayları";
-            this.dgvSiparisDetayları.Size = new System.Drawing.Size(778, 196);
-            this.dgvSiparisDetayları.TabIndex = 3;
+            this.dgvSiparisDetaylar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSiparisDetaylar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvSiparisDetaylar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSiparisDetaylar.Location = new System.Drawing.Point(3, 28);
+            this.dgvSiparisDetaylar.MultiSelect = false;
+            this.dgvSiparisDetaylar.Name = "dgvSiparisDetaylar";
+            this.dgvSiparisDetaylar.ReadOnly = true;
+            this.dgvSiparisDetaylar.RowHeadersVisible = false;
+            this.dgvSiparisDetaylar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSiparisDetaylar.Size = new System.Drawing.Size(778, 198);
+            this.dgvSiparisDetaylar.TabIndex = 3;
             // 
             // label2
             // 
@@ -119,7 +136,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisler)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisDetayları)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisDetaylar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -129,7 +146,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dgvSiparisler;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvSiparisDetayları;
+        private System.Windows.Forms.DataGridView dgvSiparisDetaylar;
         private System.Windows.Forms.Label label2;
     }
 }
