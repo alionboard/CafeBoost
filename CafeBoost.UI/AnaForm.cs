@@ -84,7 +84,14 @@ namespace CafeBoost.UI
                 db.AktifSiparisler.Add(siparis);
                 lvwMasalar.SelectedItems[0].ImageKey = "dolu";
             }
-            new SiparisForm(db, siparis).ShowDialog();
+            SiparisForm frmSiparis = new SiparisForm(db, siparis);
+            DialogResult dr = frmSiparis.ShowDialog();
+
+            //sipariş iptal edildiyse ya da ödeme alındıysa
+            if (dr==DialogResult.OK)
+            {
+                lvwMasalar.SelectedItems[0].ImageKey = "bos";
+            }
 
         }
 

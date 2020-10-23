@@ -22,6 +22,7 @@ namespace CafeBoost.UI
             db = kafeVeri;
             this.siparis = siparis;
             InitializeComponent();
+            dgvSiparisDetaylar.AutoGenerateColumns = false;
             UrunleriListele();
             MasaNoGuncelle();
             OdemeTutarıGuncelle();
@@ -29,6 +30,8 @@ namespace CafeBoost.UI
             blSiparisDetaylar = new BindingList<SiparisDetay>(siparis.SiparisDetaylar);
             blSiparisDetaylar.ListChanged += BlSiparisDetaylar_ListChanged;
             dgvSiparisDetaylar.DataSource = blSiparisDetaylar;
+
+
 
 
         }
@@ -58,6 +61,27 @@ namespace CafeBoost.UI
         {
             Urun secilenUrun = (Urun)cboUrun.SelectedItem;
             int adet = (int)nudAdet.Value;
+
+            #region YeniYerineAdeteEklemeYapma
+            //SiparisDetay detay = blSiparisDetaylar.FirstOrDefault(x => x.UrunAd == secilenUrun.UrunAd);
+
+            //if (detay!=null)
+            //{
+            //    detay.Adet += adet;
+            //    blSiparisDetaylar.ResetBindings();
+            //}
+            //else
+            //{
+            //    detay = new SiparisDetay()
+            //    {
+            //        UrunAd = secilenUrun.UrunAd,
+            //        BirimFiyat = secilenUrun.BirimFiyat,
+            //        Adet = adet
+            //    };
+            //    blSiparisDetaylar.Add(detay);
+            //} 
+            #endregion
+
             SiparisDetay detay = new SiparisDetay()
             {
                 UrunAd = secilenUrun.UrunAd,
@@ -66,16 +90,58 @@ namespace CafeBoost.UI
             };
             blSiparisDetaylar.Add(detay);
 
+
+
         }
 
         private void dgvSiparisDetaylar_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Seçili detayları silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2);
+            DialogResult dr = MessageBox.Show("Seçili detayları silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-            if (dr!=DialogResult.Yes)
+            if (dr != DialogResult.Yes)
             {
-                e.Cancel=true;
+                e.Cancel = true;
             }
+        }
+
+        private void btnAnasayfa_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void btnSiparisIptal_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult dr = MessageBox.Show("Sipariş iptal edilerek kapatılacaktır. Emin misiniz?", "İptal Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+            if (dr == DialogResult.Yes)
+            {
+                SiparisKapat(SiparisDurum.Iptal);
+            }
+        }
+
+        private void btnOdemeAl_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult dr = MessageBox.Show("Ödeme alındıysa sipariş kapatılacaktır. Emin misin?", "Ödeme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+            if (dr == DialogResult.Yes)
+            {
+                SiparisKapat(SiparisDurum.Odendi, siparis.ToplamTutar());
+            }
+        }
+
+        private void SiparisKapat(SiparisDurum siparisDurum, decimal odenenTutar = 0)
+        {
+            siparis.OdenenTutar = odenenTutar;
+            siparis.KapanisZamani = DateTime.Now;
+            siparis.Durum = siparisDurum;
+            db.AktifSiparisler.Remove(siparis);
+            db.GecmisSiparisler.Add(siparis);
+            DialogResult = DialogResult.OK;
+            Close();
+
         }
     }
 }

@@ -11,13 +11,14 @@ namespace CafeBoost.Data
         public DateTime? AcilisZamani { get; set; }
         public DateTime? KapanisZamani { get; set; }
         public SiparisDurum Durum { get; set; }
+        public decimal OdenenTutar { get; set; }
         public string ToplamTutarTL => string.Format("{0:0.00}TL",ToplamTutar());
         public Siparis()
         {
             SiparisDetaylar = new List<SiparisDetay>();
             AcilisZamani = DateTime.Now;
         }
-        private decimal ToplamTutar()
+        public decimal ToplamTutar()
         {
             return SiparisDetaylar.Sum(x => x.Tutar());
         }
