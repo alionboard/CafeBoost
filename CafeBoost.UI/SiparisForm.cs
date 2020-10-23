@@ -15,14 +15,17 @@ namespace CafeBoost.UI
     {
         private readonly KafeVeri db;
         private readonly Siparis siparis;
+        private readonly AnaForm anaForm;
         private readonly BindingList<SiparisDetay> blSiparisDetaylar;
-        public SiparisForm(KafeVeri kafeVeri, Siparis siparis)
+        public SiparisForm(KafeVeri kafeVeri, Siparis siparis,AnaForm anaForm)
         {
             //Constructor parametresi olarak gelen bu nesneleri, daha sonra da erişebileceğimiz fieldlara aktarıyoruz.
             db = kafeVeri;
             this.siparis = siparis;
+            this.anaForm = anaForm;
             InitializeComponent();
             dgvSiparisDetaylar.AutoGenerateColumns = false;
+            MasalariListele();
             UrunleriListele();
             MasaNoGuncelle();
             OdemeTutarıGuncelle();
@@ -30,11 +33,20 @@ namespace CafeBoost.UI
             blSiparisDetaylar = new BindingList<SiparisDetay>(siparis.SiparisDetaylar);
             blSiparisDetaylar.ListChanged += BlSiparisDetaylar_ListChanged;
             dgvSiparisDetaylar.DataSource = blSiparisDetaylar;
-
-
-
-
         }
+
+        private void MasalariListele()
+        {
+            cboMasalar.Items.Clear();
+            for (int i = 1; i <= db.MasaAdet; i++)
+            {
+                if (!db.AktifSiparisler.Any(x => x.MasaNo == i))
+                {
+                    cboMasalar.Items.Add(i);
+                }
+            }
+        }
+
 
         private void BlSiparisDetaylar_ListChanged(object sender, ListChangedEventArgs e)
         {
@@ -90,8 +102,6 @@ namespace CafeBoost.UI
             };
             blSiparisDetaylar.Add(detay);
 
-
-
         }
 
         private void dgvSiparisDetaylar_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -112,7 +122,7 @@ namespace CafeBoost.UI
 
         private void btnSiparisIptal_Click(object sender, EventArgs e)
         {
-            
+
             DialogResult dr = MessageBox.Show("Sipariş iptal edilerek kapatılacaktır. Emin misiniz?", "İptal Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
             if (dr == DialogResult.Yes)
@@ -123,7 +133,7 @@ namespace CafeBoost.UI
 
         private void btnOdemeAl_Click(object sender, EventArgs e)
         {
-            
+
             DialogResult dr = MessageBox.Show("Ödeme alındıysa sipariş kapatılacaktır. Emin misin?", "Ödeme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
             if (dr == DialogResult.Yes)
@@ -143,5 +153,18 @@ namespace CafeBoost.UI
             Close();
 
         }
+
+        private void btnMasaTasi_Click(object sender, EventArgs e)
+        {
+            if (cboMasalar.SelectedIndex < 0) return;
+            int kaynak = siparis.MasaNo;
+            int hedef = (int)cboMasalar.SelectedItem;
+            siparis.MasaNo = hedef;
+            anaForm.MasaTasi(kaynak, hedef);
+            MasaNoGuncelle();
+            MasalariListele();
+
+        }
+
     }
 }
