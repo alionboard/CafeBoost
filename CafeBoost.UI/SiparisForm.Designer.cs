@@ -60,7 +60,7 @@
             this.btnEkle.TabIndex = 0;
             this.btnEkle.Text = "EKLE";
             this.btnEkle.UseVisualStyleBackColor = true;
-            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
+            this.btnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
             // 
             // label1
             // 
@@ -96,7 +96,7 @@
             this.dgvSiparisDetaylar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSiparisDetaylar.Size = new System.Drawing.Size(430, 383);
             this.dgvSiparisDetaylar.TabIndex = 2;
-            this.dgvSiparisDetaylar.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvSiparisDetaylar_UserDeletingRow);
+            this.dgvSiparisDetaylar.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvSiparisDetaylar_UserDeletingRow);
             // 
             // Column1
             // 
@@ -174,7 +174,7 @@
             this.btnMasaTasi.TabIndex = 7;
             this.btnMasaTasi.Text = "TAŞI";
             this.btnMasaTasi.UseVisualStyleBackColor = true;
-            this.btnMasaTasi.Click += new System.EventHandler(this.btnMasaTasi_Click);
+            this.btnMasaTasi.Click += new System.EventHandler(this.BtnMasaTasi_Click);
             // 
             // cboMasalar
             // 
@@ -246,7 +246,7 @@
             this.btnSiparisIptal.TabIndex = 13;
             this.btnSiparisIptal.Text = "SİPARİŞ İPTAL";
             this.btnSiparisIptal.UseVisualStyleBackColor = false;
-            this.btnSiparisIptal.Click += new System.EventHandler(this.btnSiparisIptal_Click);
+            this.btnSiparisIptal.Click += new System.EventHandler(this.BtnSiparisIptal_Click);
             // 
             // btnAnasayfa
             // 
@@ -260,7 +260,7 @@
             this.btnAnasayfa.TabIndex = 14;
             this.btnAnasayfa.Text = "ANASAYFAYA DÖN";
             this.btnAnasayfa.UseVisualStyleBackColor = false;
-            this.btnAnasayfa.Click += new System.EventHandler(this.btnAnasayfa_Click);
+            this.btnAnasayfa.Click += new System.EventHandler(this.BtnAnasayfa_Click);
             // 
             // btnOdemeAl
             // 
@@ -274,7 +274,7 @@
             this.btnOdemeAl.TabIndex = 15;
             this.btnOdemeAl.Text = "ÖDEME AL";
             this.btnOdemeAl.UseVisualStyleBackColor = false;
-            this.btnOdemeAl.Click += new System.EventHandler(this.btnOdemeAl_Click);
+            this.btnOdemeAl.Click += new System.EventHandler(this.BtnOdemeAl_Click);
             // 
             // SiparisForm
             // 

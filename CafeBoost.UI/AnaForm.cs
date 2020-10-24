@@ -24,19 +24,19 @@ namespace CafeBoost.UI
             //OrnekUrunleriYukle();
             MasalariOlustur();
         }
-        private void OrnekUrunleriYukle()
-        {
-            db.Urunler.Add(new Urun
-            {
-                UrunAd = "Kola",
-                BirimFiyat = 6m
-            });
-            db.Urunler.Add(new Urun
-            {
-                UrunAd = "Ayran",
-                BirimFiyat = 4m
-            });
-        }
+        //private void OrnekUrunleriYukle()
+        //{
+        //    db.Urunler.Add(new Urun
+        //    {
+        //        UrunAd = "Kola",
+        //        BirimFiyat = 6m
+        //    });
+        //    db.Urunler.Add(new Urun
+        //    {
+        //        UrunAd = "Ayran",
+        //        BirimFiyat = 4m
+        //    });
+        //}
 
         private void MasalariOlustur()
         {
